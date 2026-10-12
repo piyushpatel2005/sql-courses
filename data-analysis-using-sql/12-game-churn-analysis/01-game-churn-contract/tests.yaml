@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: eligible_players\tinactive_players\tretained_players\tinactivity_pct\n2\t1\t1\t50.00

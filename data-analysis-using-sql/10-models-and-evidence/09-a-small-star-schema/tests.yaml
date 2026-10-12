@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: variety\tpackets\nbean\t4\npea\t2

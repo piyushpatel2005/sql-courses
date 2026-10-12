@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: batch\tregister_amount\tbank_amount\tdifference\n1\t20\t20\t0\n2\t30\tNULL\t30\n3\tNULL\t10\t-10

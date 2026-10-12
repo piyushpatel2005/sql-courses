@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: desk\trequests\tfulfilled\tfulfilled_pct\nA\t3\t1\t33.33\nB\t1\t1\t100.00

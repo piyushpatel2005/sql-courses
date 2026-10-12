@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: person\tcohort\nIra\t2025-01-01\nSol\t2025-02-01

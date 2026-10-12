@@ -1,0 +1,1 @@
+CREATE TABLE cohort_readers (reader integer, cohort date); INSERT INTO cohort_readers VALUES (1,'2025-01-01'),(2,'2025-01-01'),(3,'2025-03-01'); CREATE TABLE reading_visits (reader integer, month date); INSERT INTO reading_visits VALUES (1,'2025-02-01'),(1,'2025-02-01'),(3,'2025-03-01');

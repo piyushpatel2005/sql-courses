@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: jobs\ttimed_jobs\tmissing_jobs\n4\t3\t1

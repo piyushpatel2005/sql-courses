@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: issue_id\tpackets\n1\t4\n2\t2

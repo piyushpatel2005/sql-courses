@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: tag\tapproved\n1\ttrue\n2\tfalse\n3\ttrue\n4\tfalse

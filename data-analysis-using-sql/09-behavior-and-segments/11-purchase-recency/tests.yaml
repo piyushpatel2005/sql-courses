@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: tool\tdays_since\ndrill\t7\nplane\tNULL\nsaw\t81

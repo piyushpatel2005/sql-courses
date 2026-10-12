@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: bin_id\tlabel\n1\tblue\n2\tNULL\n3\tgreen

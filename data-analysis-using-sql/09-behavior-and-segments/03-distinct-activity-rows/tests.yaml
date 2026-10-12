@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: reader\tmonth\n1\t2025-02-01\n2\t2025-02-01

@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: crew\tmeasure\nFern\t2\nMoss\t8

@@ -1,0 +1,1 @@
+SET TIME ZONE 'UTC'; CREATE TABLE volunteer_shifts (person text, at timestamptz, state text); INSERT INTO volunteer_shifts VALUES ('Ira','2025-01-20 12:00+00','done'),('Ira','2025-02-02 12:00+00','done'),('Sol','2025-02-03 12:00+00','done'),('Tao','2025-01-05 12:00+00','cancelled');

@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: booth\tvotes\tposition\nAsh\t9\t1\nElm\t9\t2\nOak\t5\t3

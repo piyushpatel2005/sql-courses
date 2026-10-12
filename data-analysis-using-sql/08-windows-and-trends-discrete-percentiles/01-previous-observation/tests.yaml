@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: day\treading\tneighbor\n2025-02-01\t10\tNULL\n2025-02-03\t16\t10\n2025-02-04\t12\t16

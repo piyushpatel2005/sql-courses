@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: session_id\tminutes\n63\t70

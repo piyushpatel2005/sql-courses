@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: 'QUERY PLAN\nIndex Scan using plan_tickets_pkey on plan_tickets\n  Index Cond: (ticket = 2)'

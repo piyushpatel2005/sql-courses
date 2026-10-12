@@ -1,0 +1,1 @@
+CREATE TABLE seed_dimension (seed_id integer PRIMARY KEY, variety text); INSERT INTO seed_dimension VALUES (1,'bean'),(2,'pea'); CREATE TABLE source_issues (issue_id integer, seed_id integer, packets integer); INSERT INTO source_issues VALUES (11,1,3),(12,2,2),(13,1,1);

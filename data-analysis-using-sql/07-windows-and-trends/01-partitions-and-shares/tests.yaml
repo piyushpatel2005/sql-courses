@@ -1,0 +1,4 @@
+blocks:
+  - index: 0
+    expected_output: >-
+      item\tcategory\trevenue\tcategory_total\tshare_pct\nbun\tbaked\t12\t40\t30.00\npie\tbaked\t28\t40\t70.00\ntea\tdrink\t10\t10\t100.00

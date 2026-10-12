@@ -1,0 +1,1 @@
+CREATE TABLE readers (reader integer PRIMARY KEY); INSERT INTO readers VALUES (1),(2),(3); CREATE TABLE returns (reader integer, late boolean); INSERT INTO returns VALUES (1,true),(1,true),(2,false),(NULL,true);

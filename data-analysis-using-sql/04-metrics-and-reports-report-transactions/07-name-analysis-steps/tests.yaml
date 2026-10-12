@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: person\thours\tband\nAda\t5\tregular\nRen\t1\toccasional

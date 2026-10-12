@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: person\tsegment\n1\trecent_repeat\n2\tnever_bought\n3\tother

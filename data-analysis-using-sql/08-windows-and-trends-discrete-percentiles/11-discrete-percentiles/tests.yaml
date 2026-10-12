@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: measured\tmedian_minutes\n4\t10.00

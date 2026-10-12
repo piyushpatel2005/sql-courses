@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: day\tloaves\n2025-02-10\t3\n2025-02-11\t0\n2025-02-12\t5

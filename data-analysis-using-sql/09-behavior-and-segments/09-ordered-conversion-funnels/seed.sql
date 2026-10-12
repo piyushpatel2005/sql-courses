@@ -1,0 +1,1 @@
+SET TIME ZONE 'UTC'; CREATE TABLE seed_steps (reader text, step text, at timestamptz); INSERT INTO seed_steps VALUES ('Jo','collect','2025-01-01 08:00+00'),('Jo','browse','2025-01-01 09:00+00'),('Jo','reserve','2025-01-01 10:00+00'),('Lu','browse','2025-01-02 09:00+00'),('Lu','reserve','2025-01-02 10:00+00'),('Lu','collect','2025-01-03 10:00+00');

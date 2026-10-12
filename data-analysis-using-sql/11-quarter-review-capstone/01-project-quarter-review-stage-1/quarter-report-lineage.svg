@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="540" height="700" viewBox="0 0 540 700" role="img" aria-labelledby="title desc"><title id="title">Trace The Quarter Report To Its Orders</title><desc id="desc">Both report paths must reconcile to the same net ledger under the fixed cutoff.</desc><rect width="540" height="700" fill="#ffffff"/><defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="10" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#334155"/></marker></defs>
+<text x="270" y="36" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" fill="#172033">Trace The Quarter Report</text>
+<text x="270" y="68" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" fill="#172033">To Its Orders</text>
+<rect x="80" y="100" width="380" height="120" rx="16" fill="#dbeafe" stroke="#334155" stroke-width="2"/>
+<text x="270" y="146" text-anchor="middle" font-family="Arial, sans-serif" font-size="23" fill="#172033">Paid Quarter Orders</text>
+<text x="270" y="184" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#172033">One row per order</text>
+<path d="M270,220 V280" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="80" y="280" width="380" height="120" rx="16" fill="#ede9fe" stroke="#334155" stroke-width="2"/>
+<text x="270" y="326" text-anchor="middle" font-family="Arial, sans-serif" font-size="23" fill="#172033">Refund-Adjusted Ledger</text>
+<text x="270" y="364" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#172033">Same order IDs</text>
+<path d="M270,400 V460" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="80" y="460" width="380" height="120" rx="16" fill="#dcfce7" stroke="#334155" stroke-width="2"/>
+<text x="270" y="506" text-anchor="middle" font-family="Arial, sans-serif" font-size="23" fill="#172033">Board Evidence</text>
+<text x="270" y="544" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#172033">Region and month totals</text>
+<text x="270" y="634" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" fill="#334155">Both report paths must reconcile to the same</text>
+<text x="270" y="662" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" fill="#334155">net ledger under the fixed cutoff.</text>
+</svg>

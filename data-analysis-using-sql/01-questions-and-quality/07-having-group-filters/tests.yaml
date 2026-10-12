@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: reader_ref\tcopies\nR4\t2

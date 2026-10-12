@@ -1,0 +1,1 @@
+CREATE TABLE register_totals (batch integer, amount numeric); INSERT INTO register_totals VALUES (1,20),(2,30); CREATE TABLE bank_totals (batch integer, amount numeric); INSERT INTO bank_totals VALUES (1,20),(3,10);

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="370" viewBox="0 0 1080 370" role="img" aria-labelledby="title desc"><title id="title">An Ordered Path Within Fourteen Days</title><desc id="desc">Require visit &lt; book &lt; pay. A payment before the visit does not complete the path.</desc><rect width="1080" height="370" fill="#ffffff"/><defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="10" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#334155"/></marker></defs>
+<text x="540" y="46" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" fill="#172033">An Ordered Path Within Fourteen Days</text>
+<rect x="40" y="100" width="290" height="130" rx="16" fill="#dbeafe" stroke="#334155" stroke-width="2"/>
+<text x="185" y="146" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" fill="#172033">Visit</text>
+<text x="185" y="187" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#172033">Day 1 at 09:00</text>
+<path d="M330,165 H395" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="395" y="100" width="290" height="130" rx="16" fill="#ede9fe" stroke="#334155" stroke-width="2"/>
+<text x="540" y="146" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" fill="#172033">Book</text>
+<text x="540" y="187" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#172033">Day 1 at 10:00</text>
+<path d="M685,165 H750" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="750" y="100" width="290" height="130" rx="16" fill="#dcfce7" stroke="#334155" stroke-width="2"/>
+<text x="895" y="146" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" fill="#172033">Pay</text>
+<text x="895" y="187" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#172033">Day 2 at 12:00</text>
+<text x="540" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" fill="#334155">Require visit &lt; book &lt; pay. A payment before the visit does not complete the path.</text>
+</svg>

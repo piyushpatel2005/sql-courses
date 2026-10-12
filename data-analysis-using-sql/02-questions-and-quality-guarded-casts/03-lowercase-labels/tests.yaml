@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: parcel_id\tnormalized_region\n41\tnorth\n42\tnorth\n43\t\n44\tNULL

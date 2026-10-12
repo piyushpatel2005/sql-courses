@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: bill\tnet\n81\t25\n82\t30

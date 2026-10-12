@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: crew\tmeasure\nFern\t3.0000000000000000\nMoss\t8.0000000000000000

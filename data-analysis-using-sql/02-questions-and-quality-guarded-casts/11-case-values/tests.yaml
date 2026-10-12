@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: tag\tstatus\n1\tapproved\n2\treview\n3\tapproved\n4\treview

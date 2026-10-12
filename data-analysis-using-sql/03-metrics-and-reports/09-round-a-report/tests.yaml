@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: crew\tmean_hours\nFern\t3.00\nMoss\t8.00

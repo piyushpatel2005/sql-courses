@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: reader\n2\n3
