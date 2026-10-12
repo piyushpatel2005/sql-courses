@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: name\ttitle\nLuz\tOrchards\nOmar\tOrchards\nOmar\tSeashores

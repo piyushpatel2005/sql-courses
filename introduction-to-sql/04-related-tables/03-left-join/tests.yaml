@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: name\ttitle\nAsha\tMaps\nAsha\tBirds\nBo\tClay\nCleo\tNULL

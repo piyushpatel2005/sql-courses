@@ -1,0 +1,1 @@
+CREATE TABLE people(person_id integer PRIMARY KEY,name text); CREATE TABLE duties(person_id integer,shift text); INSERT INTO people VALUES (1,'Inez'),(2,'Jules'); INSERT INTO duties VALUES (1,'early'),(1,'late'),(2,'late');

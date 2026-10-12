@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: morning_ticket\tevening_ticket\n1\tNULL\n2\t2\nNULL\t3

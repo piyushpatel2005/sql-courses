@@ -1,0 +1,1 @@
+-- This exercise starts with no tables.

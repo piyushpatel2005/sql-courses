@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: 'QUERY PLAN\nSeq Scan on menu\n  Filter: (section = ''drink''::text)'

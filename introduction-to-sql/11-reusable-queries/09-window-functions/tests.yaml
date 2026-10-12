@@ -1,0 +1,4 @@
+blocks:
+  - index: 0
+    expected_output: >-
+      stall\tsale_id\tamount\tposition\nEast\t2\t12.00\t1\nEast\t1\t8.00\t2\nNorth\t5\t7.00\t1\nWest\t4\t15.00\t1\nWest\t3\t5.00\t2

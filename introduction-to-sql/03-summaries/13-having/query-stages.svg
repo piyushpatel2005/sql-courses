@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 280" role="img" aria-labelledby="title desc"><title id="title">Read a Grouped Query</title><desc id="desc">Row filtering precedes grouping; group filtering precedes the final ordered report.</desc><rect width="940" height="280" fill="#f8fafc"/><defs><marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/></marker></defs>
+<text x="470" y="40" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" fill="#0f172a">Read a Grouped Query</text>
+<rect x="30" y="85" width="240" height="145" rx="12" fill="#dbeafe" stroke="#334155" stroke-width="2"/>
+<text x="150.0" y="120" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" fill="#0f172a">Input Rows</text>
+<text x="150.0" y="161" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#0f172a">FROM and WHERE</text>
+<text x="150.0" y="194" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#0f172a">Choose qualifying rows</text>
+<rect x="350" y="85" width="240" height="145" rx="12" fill="#dcfce7" stroke="#334155" stroke-width="2"/>
+<text x="470.0" y="120" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" fill="#0f172a">Groups</text>
+<text x="470.0" y="161" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#0f172a">GROUP BY and HAVING</text>
+<text x="470.0" y="194" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#0f172a">Build and filter totals</text>
+<rect x="670" y="85" width="240" height="145" rx="12" fill="#fef3c7" stroke="#334155" stroke-width="2"/>
+<text x="790.0" y="120" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" fill="#0f172a">Report</text>
+<text x="790.0" y="161" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#0f172a">SELECT and ORDER BY</text>
+<text x="790.0" y="194" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#0f172a">Display; then LIMIT</text>
+<path d="M 270 157.5 L 350 157.5" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M 590 157.5 L 670 157.5" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+</svg>

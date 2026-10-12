@@ -1,0 +1,5 @@
+blocks:
+  - index: 0
+    expected_output: room_id\tquantity\n1\t6\n2\t5
+  - index: 1
+    expected_output: id\tquantity\n1\t8

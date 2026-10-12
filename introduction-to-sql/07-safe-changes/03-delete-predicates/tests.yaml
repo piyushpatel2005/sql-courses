@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: item_id\titem\n1\tTea\n2\tSoup\n4\tCoffee

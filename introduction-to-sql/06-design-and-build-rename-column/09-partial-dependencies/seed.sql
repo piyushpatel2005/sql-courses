@@ -1,0 +1,1 @@
+CREATE TABLE readers(reader_id integer PRIMARY KEY,name text); CREATE TABLE choices(reader_id integer,book text); INSERT INTO readers VALUES (1,'Ana'),(2,'Bo'); INSERT INTO choices VALUES (1,'Maps'),(1,'Birds'),(2,'Birds');

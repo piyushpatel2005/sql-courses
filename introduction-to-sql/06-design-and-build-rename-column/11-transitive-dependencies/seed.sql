@@ -1,0 +1,1 @@
+CREATE TABLE venues(venue_id integer PRIMARY KEY,address text); CREATE TABLE sessions(session_id integer,title text,venue_id integer); INSERT INTO venues VALUES (1,'River Road'); INSERT INTO sessions VALUES (1,'Pottery',1),(2,'Weaving',1);

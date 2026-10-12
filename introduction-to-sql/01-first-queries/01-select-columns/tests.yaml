@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: item\tprice\nTea\t2.50\nSoup\t5.00\nCake\t4.00\nCoffee\t3.00

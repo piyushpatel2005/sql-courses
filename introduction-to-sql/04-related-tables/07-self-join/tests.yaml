@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: name\tmanager\nEda\tNULL\nFinn\tEda

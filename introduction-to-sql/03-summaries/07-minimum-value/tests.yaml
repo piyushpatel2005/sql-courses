@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: smallest_sale\n5.00

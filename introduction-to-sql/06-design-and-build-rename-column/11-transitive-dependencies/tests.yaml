@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: title\taddress\nPottery\tRiver Road\nWeaving\tRiver Road

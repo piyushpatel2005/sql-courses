@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: room\tslot\nBlue\t10:00\nBlue\t14:00\nGreen\t10:00\nGreen\t14:00

@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: stall\tsales_count\ttotal\nEast\t2\t20.00\nNorth\t1\t7.00\nWest\t2\t20.00

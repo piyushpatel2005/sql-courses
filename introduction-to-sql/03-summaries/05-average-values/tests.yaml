@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: average_sale\n9.4000000000000000

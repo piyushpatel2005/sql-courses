@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: sales_count\twith_voucher\n5\t2

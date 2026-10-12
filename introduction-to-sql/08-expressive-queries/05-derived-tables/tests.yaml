@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: section\ttotal\ndrink\t5.50\nfood\t9.00

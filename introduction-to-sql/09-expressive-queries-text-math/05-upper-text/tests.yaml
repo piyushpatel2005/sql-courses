@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: parcel_id\tupper_label\n1\t  RIVER BOWL \n2\tFIELD CUP

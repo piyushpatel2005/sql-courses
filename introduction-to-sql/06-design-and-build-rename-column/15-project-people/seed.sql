@@ -1,0 +1,1 @@
+-- Stage 1 starts with an empty database.

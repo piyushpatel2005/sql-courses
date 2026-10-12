@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: stall\ttotal\nEast\t20.00\nWest\t20.00

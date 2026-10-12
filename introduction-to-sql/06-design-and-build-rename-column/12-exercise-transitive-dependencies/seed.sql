@@ -1,0 +1,1 @@
+CREATE TABLE rooms(room_id integer PRIMARY KEY,building text); CREATE TABLE workshops(workshop_id integer,title text,room_id integer); INSERT INTO rooms VALUES (10,'North hall'); INSERT INTO workshops VALUES (1,'Repair',10),(2,'Printing',10);

@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: reader\tbook\nAna\tBirds\nAna\tMaps\nBo\tBirds

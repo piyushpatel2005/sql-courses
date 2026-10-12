@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: label_id\ttitle\treviewed\n1\tStone cup\tfalse

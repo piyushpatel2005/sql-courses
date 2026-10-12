@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: item\tdisplay_note\nTea\tNo note\nSoup\tContains celery\nCake\tNo note\nCoffee\tDecaf available

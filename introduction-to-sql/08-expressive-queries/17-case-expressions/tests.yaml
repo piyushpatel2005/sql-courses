@@ -1,0 +1,3 @@
+blocks:
+  - index: 0
+    expected_output: item\tstatus\nTea\tready\nSoup\tready\nCake\tsold out\nCoffee\tready
