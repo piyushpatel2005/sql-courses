@@ -36,4 +36,4 @@ WHERE p.signed_up_at < TIMESTAMPTZ '2025-04-01 00:00+00'
 GROUP BY p.player_id, p.signed_up_at, p.channel;
 SELECT player_id, last_seen::date::text AS last_play_date, baseline_plays, recent_plays, account_mature FROM game_player_history ORDER BY player_id;
 
--- Add the next report checkpoint below.
+-- TODO: Step 1: Insert below: Append the five-state player classification with exclusion precedence.

@@ -18,4 +18,4 @@ SELECT (SELECT COUNT(*) FROM game_events) AS raw_receipts,
        COUNT(*) AS valid_plays, COUNT(DISTINCT player_id) AS playing_accounts
 FROM game_activity;
 
--- Add the next report checkpoint below.
+-- TODO: Step 1: Insert below: Append player history with last_seen and both activity windows.

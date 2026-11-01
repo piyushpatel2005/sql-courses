@@ -20,6 +20,27 @@ sql:
 
 A database stores related facts in tables. A table has named columns and rows; one row in this cafe's `menu` describes one item. The column names are part of the schema, which describes the table's structure. The stored values are its data.
 
+## Data model
+
+### Example data
+
+These tables are already loaded at the start of this lesson.
+
+#### `menu`
+
+One row represents one cafe menu item.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `item_id` · `integer` | Identifier of the menu item. | Primary key. Required; cannot be `NULL`. |
+| `item` · `text` | Item display name, not an identifier. | Nullable; `NULL` means no item value is recorded. |
+| `section` · `text` | Menu grouping, such as food or drink. | Nullable; `NULL` means no section value is recorded. |
+| `price` · `numeric(6,2)` | Price of one item in currency units, stored to two decimal places. | Nullable; `NULL` means the price is unrecorded, not zero. |
+| `in_stock` · `boolean` | Availability flag: true means in stock; false means not in stock. | Nullable; `NULL` means availability is unrecorded. |
+| `note` · `text` | Optional item or handling note. | Nullable; `NULL` means no note is recorded. |
+
+Only `item_id` is required by this schema. A missing stock flag means availability is unrecorded, not false. The sample section labels are not an enforced list; no currency code or nonnegative-price rule is declared.
+
 SQL is a language for requesting or changing those facts. You describe the result you want rather than writing a loop over rows. `SELECT item, price` chooses two output columns. `FROM menu` identifies the input table. A comma separates columns, and a semicolon ends the statement.
 
 SQL keywords are case-insensitive; uppercase keywords make them easier to spot beside column names. A line beginning with `--` is a comment for the reader, so it does not execute. When you see comments in an exercise starter, replace or keep them as useful notes rather than treating them as missing commands.

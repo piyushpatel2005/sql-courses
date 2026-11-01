@@ -20,6 +20,21 @@ sql:
 
 UNIQUE rejects repeated known values. PostgreSQL ordinary UNIQUE still permits more than one NULL, so combine it with the previously taught NOT NULL when a required value must also be unique. An email policy should be a business decision rather than an assumption about every person.
 
+## Data model
+
+### Example data
+
+This example starts without tables. The following dictionaries describe the tables to create, not preloaded tables.
+
+#### `locations`
+
+One row represents one location.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `location_id` · `integer` | Identifier of the location. | Primary key. Required; cannot be `NULL`. |
+| `name` · `text` | Location display name. | Unique. Required; cannot be `NULL`. |
+
 A repeated known location name would now be rejected. The primary key protects location_id; the new UNIQUE rule protects a different business value. IF NOT EXISTS allows another Run without recreating the table; it does not validate an existing definition.
 
 ```sql run

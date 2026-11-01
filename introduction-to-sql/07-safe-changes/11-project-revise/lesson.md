@@ -38,6 +38,46 @@ sql:
 
 The seed restores the completed cancellation from stage 2. Both original stock counts are back and allocations is empty. The revised plan reserves two Paint packs. Someone also suggests adding a Repair pack, but that suggestion is withdrawn before commit.
 
+## Data model
+
+### Exercise data
+
+These tables are already loaded at the start of this lesson.
+
+#### `allocations`
+
+One row represents one reservation of supply packs.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `allocation_id` · `integer` | Identifier of the reservation. | Primary key. Required; cannot be `NULL`. |
+| `supply_id` · `integer` | Required reference to the reserved supply kind. | Required; cannot be `NULL`. Foreign key to `supplies.supply_id`. |
+| `quantity` · `integer` | Whole-number count of packs reserved by this allocation. | Required; cannot be `NULL`. Check: `quantity > 0`. |
+
+#### `supplies`
+
+One row represents one kind of supply pack, not one physical pack.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `supply_id` · `integer` | Identifier of the supply kind. | Primary key. Required; cannot be `NULL`. |
+| `name` · `text` | Name of the supply kind. | Required; cannot be `NULL`. |
+| `available` · `integer` | Whole-number count of packs of this kind still unallocated. | Required; cannot be `NULL`. Check: `available >= 0`. |
+
+Stock counts and allocation quantities require coordinated writes; the constraints do not automatically reconcile them.
+
+### Relationship map
+
+![Foreign-Key Relationship: allocations.supply_id and supplies.supply_id](allocations-supply-id-to-supplies-supply-id-relationship-857145a5.svg)
+
+`allocations.supply_id` matches `supplies.supply_id`. One `supplies` row can have zero or many matching `allocations` rows; each `allocations` row must reference exactly one existing parent. This is a declared foreign key.
+
+Joining child detail repeats the parent fields once per matching child. An inner join omits unmatched rows; a left join keeps unmatched rows from its left input with NULLs for the missing side. Those result NULLs are separate from missing values stored in a real row.
+
+### State for this lesson
+
+The seed restores the completed cancellation: available stock is 10 Repair packs and 6 Paint packs, and `allocations` is empty. The prior SQL in the seed reconstructs this state before the new stage.
+
 Record the wanted allocation first, then create a savepoint. Try the optional allocation after it, roll back only that later part, and commit the remaining work. The final report must retain allocation 101 for Paint packs and no allocation for Repair packs.
 
 All the syntax comes from earlier lessons. The challenge is choosing the boundary: the savepoint belongs after the two statements that make the valid allocation, not between them. Otherwise rolling back could keep a stock deduction without its matching allocation.

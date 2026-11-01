@@ -45,5 +45,5 @@ SELECT month::text AS month, paid_orders, net,
  net-LAG(net) OVER (ORDER BY month) AS change_net
 FROM quarter_months ORDER BY month;
 
--- Stage 5: replace this preview with the next report step.
+-- TODO: Step 1: Replace the following preview: Report regional shares, net ranks, and the reconciliation gap.
 SELECT month::text AS month, paid_orders, net FROM quarter_months ORDER BY month;

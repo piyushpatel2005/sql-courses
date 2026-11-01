@@ -18,6 +18,40 @@ sql:
 
 # Name analysis steps with CTEs
 
+## Data model
+
+### Example data
+
+These objects are loaded at the start. Only the query inputs and their required lineage are listed; other tables in a shared seed are not part of this report.
+
+#### `shifts`
+
+One row represents one volunteer shift.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `person` · `text` | Volunteer name label used for grouping; not a verified unique person identifier. | Nullable; `NULL` means no person value is recorded. |
+| `hours` · `numeric` | Hours contributed on this shift, not the volunteer lifetime total. | Nullable; `NULL` means the hours measure is unrecorded, not zero. |
+
+No primary or unique key is declared; distinct sample identifiers are not a uniqueness guarantee.
+
+### Named intermediate results
+
+These dictionaries describe the columns exposed by the named query steps. They are not extra preloaded tables or a complete answer query.
+
+#### `totals`
+
+One row represents one volunteer-name group.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `person` · `text` | Volunteer name group inherited from shifts.person. | May be `NULL` under its source or expression policy. Logical group key; equal names need not identify the same real person. |
+| `hours` · `numeric` | Sum of shift contribution hours for this name. | May be `NULL` under its source or expression policy. NULL if this group has no known hours; no fixed numeric precision is declared. |
+
+This CTE is statement-local; it has no independently declared primary key, foreign key or NOT NULL constraint.
+
+Grouping changes shift grain to name-group grain, not verified person identity.
+
 A report becomes easier to review when each step has a name and a declared grain. Use a common table expression to separate calculation from selection.
 
 `WITH name AS (query)` defines a named result for one SQL statement. The final query can read that name as if it were a table. Multiple CTEs are separated by commas, and a later CTE can refer to an earlier one. Each closing parenthesis marks a useful checkpoint: name the columns and what one row means.
@@ -34,7 +68,8 @@ WITH totals AS (
   FROM shifts GROUP BY person
 )
 SELECT person, hours,
-       CASE WHEN hours >= 4 THEN 'regular' ELSE 'occasional' END AS band
+       CASE WHEN hours >= 4 THEN 'regular'
+            ELSE 'occasional' END AS band
 FROM totals
 ORDER BY person;
 ```

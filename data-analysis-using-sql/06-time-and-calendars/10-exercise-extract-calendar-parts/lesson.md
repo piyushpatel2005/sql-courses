@@ -33,6 +33,25 @@ hints:
 
 # Exercise: Read a date component with EXTRACT
 
+## Data model
+
+### Exercise data
+
+These objects are loaded at the start. Only the query inputs and their required lineage are listed; other tables in a shared seed are not part of this report.
+
+#### `report_periods`
+
+One row represents one supplied reporting month.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `period_id` · `integer` | Period record identifier. | Nullable; `NULL` means the identifier or reference is unrecorded. |
+| `starts_on` · `date` | Inclusive first-of-month calendar date; a calendar-month interval gives the next boundary. | Nullable; `NULL` means the calendar date is unrecorded. |
+
+No primary or unique key is declared; distinct sample identifiers are not a uniqueness guarantee.
+
+First-of-month values are a fixture convention, not an enforced CHECK.
+
 Expose each period key for a reporting check without merging years.
 
 ## Your Task

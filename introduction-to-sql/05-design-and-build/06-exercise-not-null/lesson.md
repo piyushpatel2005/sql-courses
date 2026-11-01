@@ -28,6 +28,21 @@ hints:
 
 A locker label must be recorded before the row is accepted. Keep the familiar primary key and add the required-value rule to the label.
 
+## Data model
+
+### Exercise data
+
+This exercise starts without tables. The following dictionaries describe the tables to create, not preloaded tables.
+
+#### `lockers`
+
+One row represents one locker.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `locker_id` · `integer` | Identifier of the locker. | Primary key. Required; cannot be `NULL`. |
+| `label` · `text` | Readable locker label. | Required; cannot be `NULL`. |
+
 ## Your Task
 
 1. Create lockers with locker_id integer PRIMARY KEY and label text NOT NULL. Finish by selecting locker_id, label in that order.

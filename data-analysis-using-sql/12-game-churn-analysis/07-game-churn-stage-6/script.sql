@@ -73,4 +73,4 @@ SELECT observed_accounts, excluded_accounts, eligible_players, inactive_players,
 FROM counts;
 SELECT observed_accounts, excluded_accounts, eligible_players, inactive_players, retained_players, cohort_gap FROM game_reconciliation;
 
--- Add the next report checkpoint below.
+-- TODO: Step 1: Insert below: Append the channel investigation queue with weighted rates.

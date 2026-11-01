@@ -14,5 +14,5 @@ FROM intake_clean GROUP BY COALESCE(region, 'unknown');
 SELECT region, imports, usable_fees
 FROM intake_by_region ORDER BY region;
 
--- Stage 3: replace this preview with the next report step.
+-- TODO: Step 1: Replace the following preview: Compute coverage from summed usable-fee and import counts.
 SELECT * FROM intake_by_region ORDER BY region;

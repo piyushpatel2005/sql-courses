@@ -46,4 +46,4 @@ SELECT h.*, CASE
 FROM game_player_history h;
 SELECT player_id, activity_status FROM game_status ORDER BY player_id;
 
--- Add the next report checkpoint below.
+-- TODO: Step 1: Insert below: Append eligible signup-month/channel cohort counts and rates.

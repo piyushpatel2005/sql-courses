@@ -1,4 +1,3 @@
--- Inspect the supplied table, then replace this query
--- with the requested report.
+-- TODO: Step 1: Replace this inspection query with the requested query.
 SELECT * FROM kits
 ORDER BY kit_id;

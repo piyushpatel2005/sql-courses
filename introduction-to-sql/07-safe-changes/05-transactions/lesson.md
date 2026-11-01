@@ -20,6 +20,38 @@ sql:
 
 Two related updates should succeed together. BEGIN starts a transaction block. COMMIT accepts its changes; ROLLBACK cancels them. Outside an explicit block, each successful statement normally commits on its own unless a client library manages transactions for you.
 
+## Data model
+
+### Example data
+
+Each block creates its own disposable table. The first uses chair counts; the second uses a separate trial quantity. Neither table is preloaded.
+
+### First example: chair counts
+
+#### `chairs`
+
+One row represents one room's chair count.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `room_id` · `integer` | Identifier of the room in this disposable fixture. | Primary key. Required; cannot be `NULL`. |
+| `quantity` · `integer` | Whole-number count of chairs recorded in the room. | Nullable; `NULL` means the quantity is unrecorded, not zero. |
+
+No separate rooms table or foreign key is declared, and no nonnegative-count check is present.
+
+### Second example: trial quantity
+
+#### `trial`
+
+One row represents one disposable quantity record.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `id` · `integer` | Identifier of the trial record. | Primary key. Required; cannot be `NULL`. |
+| `quantity` · `integer` | Whole-number trial quantity, restored by the rollback. | Nullable; `NULL` means the quantity is unrecorded, not zero. |
+
+This fixture exists only to demonstrate rollback; it has no declared unit or nonnegative-count check.
+
 The first example moves two chairs from one room to another and commits. The second tries a change but rolls it back. Each block recreates its own disposable fixture so the comparison is repeatable. Look at the final counts rather than expecting the output panel to show every intermediate statement.
 
 Atomicity means a transaction's changes are accepted together or discarded together. Isolation concerns how concurrent work interacts, and durability concerns committed data surviving failures in a normally configured persistent database. Our practice database is disposable: COMMIT does not promise that your lesson edits survive a reset.

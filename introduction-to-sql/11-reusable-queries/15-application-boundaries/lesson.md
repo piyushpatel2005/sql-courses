@@ -18,6 +18,21 @@ seo_keywords:
 
 An application must preserve the difference between a query and the values supplied by its users. This reading explains that boundary; there is no application driver attached to the lesson editor.
 
+## Data model
+
+### Illustrative application data
+
+#### `people`
+
+One row represents one illustrative person record.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `name` · `text` | Display name returned by the parameterized lookup. | Illustrative nullable field; no constraint is specified in this reading. |
+| `email` · `text` | Email value compared with the separately bound application parameter. | Illustrative nullable field; uniqueness is not specified. |
+
+This is only the illustrative schema needed to read the parameter example, not the earlier project table or a runnable fixture. No key, foreign key or missing-value policy is promised. A real application must define those rules; equal emails could return more than one row unless uniqueness is enforced.
+
 ## Values are data, not SQL source
 
 An application must not assemble SQL by concatenating an untrusted search term. A term containing quotes or SQL punctuation can change the meaning of a concatenated command. Escaping by hand is easy to get wrong.

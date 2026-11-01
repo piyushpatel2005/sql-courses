@@ -18,12 +18,32 @@ sql:
 
 # Look ahead one observation with LEAD
 
-LEAD(value) reads the following row under the window ORDER BY. PARTITION BY restarts the sequence for each entity. If there is no such neighbor, the default result is NULL.
+## Data model
 
-The function moves by rows, not elapsed days. The sensor has a gap in its dates, so the next visible row is not necessarily tomorrow and the prior row is not necessarily yesterday. Keep that grain in the interpretation. Add a stable key when timestamps tie.
+### Example data
+
+These objects are loaded at the start. Only the query inputs and their required lineage are listed; other tables in a shared seed are not part of this report.
+
+#### `readings`
+
+One row represents one recorded sensor observation.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `day` · `date` | Observation calendar date; the supplied dates are unique but sparse. | Nullable; `NULL` means the calendar date is unrecorded. |
+| `reading` · `integer` | Sensor observation in the sensor own units; the fixture does not specify a physical unit. | Nullable; `NULL` means no reading value is recorded. |
+
+No primary or unique key is declared; distinct sample identifiers are not a uniqueness guarantee.
+
+A missing calendar day is not a measured zero. LAG and LEAD move by observations, not elapsed days; no date key is declared.
+
+`LAG` looked backward. `LEAD(value)` uses the same ordered sequence to read the following row instead. `PARTITION BY` still restarts the sequence for each entity, and the last row gets NULL because it has no following observation.
+
+In the same sparse sensor fixture, February 1 looks ahead to February 3, not February 2. Run the example and compare that first result with the earlier LAG output. A following observation is not a prediction: it is a later row already present in this snapshot.
 
 ```sql run
-SELECT day::text AS day,reading,LEAD(reading) OVER (ORDER BY day) AS neighbor
+SELECT day::text AS day, reading,
+       LEAD(reading) OVER (ORDER BY day) AS neighbor
 FROM readings
 ORDER BY day;
 ```

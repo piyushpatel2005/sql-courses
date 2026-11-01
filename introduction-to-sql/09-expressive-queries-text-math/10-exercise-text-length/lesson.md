@@ -34,6 +34,26 @@ hints:
 
 Check how many characters each raw packing label contains. Count surrounding spaces too, since this report is inspecting the input rather than cleaning it.
 
+## Data model
+
+### Exercise data
+
+These tables are already loaded at the start of this lesson.
+
+#### `packing`
+
+One row represents one package record.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `pack_id` · `integer` | Intended package identifier, used for ordering but not declared as a key. | Nullable; `NULL` means the identifier is unrecorded. |
+| `label` · `text` | Raw packing label, including its original spaces and letter case. | Nullable; `NULL` means no label value is recorded. |
+| `items` · `integer` | Whole-number count of items in the package, not its weight. | Nullable; `NULL` means the items is unrecorded, not zero. |
+
+No primary key or nonnegative-item-count check is declared. The sample identifiers being distinct does not enforce uniqueness.
+
+This table has no declared primary or unique key; distinct sample values are not a uniqueness guarantee.
+
 ## Your Task
 
 1. Return pack_id and CHAR_LENGTH(label) AS characters from packing, ordered by pack_id.

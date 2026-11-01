@@ -34,6 +34,30 @@ sql:
 
 A volunteer can mentor another volunteer, so both roles come from the same table. Use distinct aliases for the person and the mentor. Leena has no mentor and must still appear in the directory.
 
+## Data model
+
+### Exercise data
+
+These tables are already loaded at the start of this lesson.
+
+#### `volunteers`
+
+One row represents one volunteer.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `volunteer_id` · `integer` | Identifier of the volunteer. | Primary key. Required; cannot be `NULL`. |
+| `name` · `text` | Volunteer display name. | Nullable; `NULL` means no name value is recorded. |
+| `mentor_id` · `integer` | Volunteer identifier of this person's mentor, matched to another `volunteers.volunteer_id`. | Nullable; `NULL` means no mentor identifier is recorded. |
+
+`mentor_id` is a logical self-link, not a declared foreign key. In the sample, Leena has no mentor recorded.
+
+### Relationship map
+
+![Self-Join Roles: volunteers.mentor_id and volunteers.volunteer_id](volunteers-mentor-id-to-volunteers-volunteer-id-relationship-6a4047e6.svg)
+
+`volunteers.mentor_id` on the person row matches `volunteers.volunteer_id` on the mentor row. One mentor can have zero or many mentees; each person can match zero or one mentor because `volunteer_id` is unique. This is a logical match, not a declared foreign key; a NULL or unmatched child identifier is allowed.
+
 ## Supplied data
 
 The setup below is already loaded before each attempt. It is reference material, not code to paste into `script.sql`.

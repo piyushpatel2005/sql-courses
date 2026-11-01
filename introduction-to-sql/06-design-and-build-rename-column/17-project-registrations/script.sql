@@ -1,3 +1,3 @@
 -- The seed restores the completed previous stage.
--- Add this stage's work below.
+-- TODO: Step 1: Replace the checkpoint below with this stage's SQL.
 SELECT 'not finished' AS checkpoint;

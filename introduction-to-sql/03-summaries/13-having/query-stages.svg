@@ -1,17 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 280" role="img" aria-labelledby="title desc"><title id="title">Read a Grouped Query</title><desc id="desc">Row filtering precedes grouping; group filtering precedes the final ordered report.</desc><rect width="940" height="280" fill="#f8fafc"/><defs><marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/></marker></defs>
-<text x="470" y="40" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" fill="#0f172a">Read a Grouped Query</text>
-<rect x="30" y="85" width="240" height="145" rx="12" fill="#dbeafe" stroke="#334155" stroke-width="2"/>
-<text x="150.0" y="120" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" fill="#0f172a">Input Rows</text>
-<text x="150.0" y="161" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#0f172a">FROM and WHERE</text>
-<text x="150.0" y="194" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#0f172a">Choose qualifying rows</text>
-<rect x="350" y="85" width="240" height="145" rx="12" fill="#dcfce7" stroke="#334155" stroke-width="2"/>
-<text x="470.0" y="120" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" fill="#0f172a">Groups</text>
-<text x="470.0" y="161" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#0f172a">GROUP BY and HAVING</text>
-<text x="470.0" y="194" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#0f172a">Build and filter totals</text>
-<rect x="670" y="85" width="240" height="145" rx="12" fill="#fef3c7" stroke="#334155" stroke-width="2"/>
-<text x="790.0" y="120" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" fill="#0f172a">Report</text>
-<text x="790.0" y="161" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#0f172a">SELECT and ORDER BY</text>
-<text x="790.0" y="194" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#0f172a">Display; then LIMIT</text>
-<path d="M 270 157.5 L 350 157.5" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
-<path d="M 590 157.5 L 670 157.5" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="538" viewBox="0 0 520 538" role="img" aria-labelledby="title desc"><title id="title">Read a Grouped Query</title><desc id="desc">Logical stages for the sales example: five sales form three stall groups, HAVING retains two groups, and the final SELECT orders the report.</desc><rect width="520" height="538" fill="#f8fafc"/><defs><marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/></marker></defs>
+<text x="260" y="33" text-anchor="middle" font-family="Arial,sans-serif" font-size="23" fill="#0f172a">Read a Grouped Query</text>
+<text x="260" y="61" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#0f172a">A reasoning order, not a physical execution plan</text>
+<rect x="30" y="88" width="460" height="105" rx="12" fill="#dbeafe" stroke="#334155" stroke-width="2"/>
+<text x="260" y="117" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" fill="#0f172a">Input Rows</text>
+<text x="260" y="146" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#0f172a">FROM sales; WHERE would filter rows</text>
+<text x="260" y="173" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#0f172a">This example keeps all 5 sales.</text>
+<rect x="30" y="235" width="460" height="105" rx="12" fill="#dcfce7" stroke="#334155" stroke-width="2"/>
+<text x="260" y="264" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" fill="#0f172a">Build and Filter Groups</text>
+<text x="260" y="293" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#0f172a">GROUP BY stall makes 3 stall groups.</text>
+<text x="260" y="320" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#0f172a">HAVING SUM(amount) &gt;= 15 keeps 2.</text>
+<rect x="30" y="382" width="460" height="132" rx="12" fill="#fef3c7" stroke="#334155" stroke-width="2"/>
+<text x="260" y="411" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" fill="#0f172a">Display the Report</text>
+<text x="260" y="440" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#0f172a">SELECT stall and SUM(amount) AS total</text>
+<text x="260" y="467" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#0f172a">ORDER BY stall: East 20.00, West 20.00</text>
+<text x="260" y="494" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#0f172a">LIMIT, if present, bounds the final result.</text>
+<path d="M 260 193 L 260 235" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M 260 340 L 260 382" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
 </svg>

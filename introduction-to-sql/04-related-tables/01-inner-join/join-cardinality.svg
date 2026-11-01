@@ -1,17 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 280" role="img" aria-labelledby="title desc"><title id="title">One Member Can Match Two Loans</title><desc id="desc">One unique member matches two loan rows and therefore produces two joined result rows.</desc><rect width="940" height="280" fill="#f8fafc"/><defs><marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/></marker></defs>
-<text x="470" y="40" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" fill="#0f172a">One Member Can Match Two Loans</text>
-<rect x="30" y="85" width="240" height="145" rx="12" fill="#dbeafe" stroke="#334155" stroke-width="2"/>
-<text x="150.0" y="120" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" fill="#0f172a">Member 1</text>
-<text x="150.0" y="161" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#0f172a">Asha</text>
-<text x="150.0" y="194" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#0f172a">One stored member</text>
-<rect x="350" y="85" width="240" height="145" rx="12" fill="#dcfce7" stroke="#334155" stroke-width="2"/>
-<text x="470.0" y="120" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" fill="#0f172a">Matching Loans</text>
-<text x="470.0" y="161" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#0f172a">10: Maps / 11: Birds</text>
-<text x="470.0" y="194" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#0f172a">Two loan rows</text>
-<rect x="670" y="85" width="240" height="145" rx="12" fill="#fef3c7" stroke="#334155" stroke-width="2"/>
-<text x="790.0" y="120" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" fill="#0f172a">Joined Result</text>
-<text x="790.0" y="161" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#0f172a">Asha + Maps</text>
-<text x="790.0" y="194" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#0f172a">Asha + Birds</text>
-<path d="M 270 157.5 L 350 157.5" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
-<path d="M 590 157.5 L 670 157.5" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="565" viewBox="0 0 520 565" role="img" aria-labelledby="title desc"><title id="title">One Member, Two Loan Matches</title><desc id="desc">Asha is stored once as member 1. Loans 10 and 11 match her member_id and produce two detail rows; this is a subset of the full query, which also returns Bo.</desc><rect width="520" height="565" fill="#f8fafc"/><defs><marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/></marker></defs>
+<text x="260" y="33" text-anchor="middle" font-family="Arial,sans-serif" font-size="23" fill="#0f172a">One Member, Two Loan Matches</text>
+<text x="260" y="61" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#0f172a">Asha’s matches from the lesson dataset</text>
+<rect x="30" y="88" width="460" height="105" rx="12" fill="#dbeafe" stroke="#334155" stroke-width="2"/>
+<text x="260" y="117" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" fill="#0f172a">One Stored Member</text>
+<text x="260" y="146" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#0f172a">members: member_id = 1, name = Asha</text>
+<text x="260" y="173" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#0f172a">member_id is a primary key.</text>
+<rect x="30" y="235" width="460" height="132" rx="12" fill="#dcfce7" stroke="#334155" stroke-width="2"/>
+<text x="260" y="264" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" fill="#0f172a">Two Matching Loans</text>
+<text x="260" y="293" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#0f172a">loan 10: member_id 1, title Maps</text>
+<text x="260" y="320" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#0f172a">loan 11: member_id 1, title Birds</text>
+<text x="260" y="347" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#0f172a">ON loans.member_id = members.member_id</text>
+<rect x="30" y="409" width="460" height="132" rx="12" fill="#fef3c7" stroke="#334155" stroke-width="2"/>
+<text x="260" y="438" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" fill="#0f172a">Two Joined Result Rows</text>
+<text x="260" y="467" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#0f172a">Asha | Maps</text>
+<text x="260" y="494" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#0f172a">Asha | Birds</text>
+<text x="260" y="521" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#0f172a">The full query also returns Bo | Clay.</text>
+<path d="M 260 193 L 260 235" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M 260 367 L 260 409" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
 </svg>

@@ -28,6 +28,36 @@ hints:
 
 Find names present in both neighborhood invitation lists. A name should appear once in this overlap report even when it was submitted repeatedly.
 
+## Data model
+
+### Exercise data
+
+These tables are already loaded at the start of this lesson.
+
+#### `north_invites`
+
+One row represents one invitation record from the north team.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `name` · `text` | Invitee name label on this record, not a verified person identifier. | Nullable; `NULL` means no name value is recorded. |
+
+No key or foreign key is declared. Repeated records are allowed; equal names do not establish a real-world identity. The two lists have compatible text columns, not a foreign-key relationship.
+
+This table has no declared primary or unique key; distinct sample values are not a uniqueness guarantee.
+
+#### `south_invites`
+
+One row represents one invitation record from the south team.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `name` · `text` | Invitee name label on this record, not a verified person identifier. | Nullable; `NULL` means no name value is recorded. |
+
+No key or foreign key is declared. Repeated records are allowed; equal names do not establish a real-world identity. The two lists have compatible text columns, not a foreign-key relationship.
+
+This table has no declared primary or unique key; distinct sample values are not a uniqueness guarantee.
+
 ## Your Task
 
 1. Return name from north_invites INTERSECT name from south_invites, ordered alphabetically. Use INTERSECT to express the requested row combination.

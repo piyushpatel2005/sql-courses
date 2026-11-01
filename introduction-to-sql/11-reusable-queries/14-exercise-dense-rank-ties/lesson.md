@@ -47,6 +47,29 @@ hints:
 
 Number the distinct fee levels within each category. Equal fees share a level, and the next lower fee receives the next number without a gap.
 
+## Data model
+
+### Exercise data
+
+These tables are already loaded at the start of this lesson.
+
+#### `gear`
+
+One row represents one equipment catalog entry.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `gear_id` · `integer` | Identifier of the equipment entry. | Primary key. Required; cannot be `NULL`. |
+| `name` · `text` | Equipment display name. | Required; cannot be `NULL`. |
+| `category` · `text` | Equipment grouping, such as repair, outdoors or art. | Required; cannot be `NULL`. |
+| `fee` · `numeric(6,2)` | Daily borrowing charge in currency units, stored to two decimal places. | Required; cannot be `NULL`. |
+| `available` · `boolean` | Whether the equipment is available to borrow: true or false. | Required; cannot be `NULL`. |
+| `note` · `text` | Optional handling note. | Nullable; `NULL` means no note is recorded. |
+
+Only `note` may be missing. Category labels are sample values, not an enforced vocabulary. No currency code or nonnegative-fee constraint is declared; a fee is a daily charge, not a count of items.
+
+This fixture has six gear entries, including Socket set in repair at a daily fee of 6.00. Equal fees are allowed; the gear identifiers remain distinct.
+
 ## Your Task
 
 1. Return category, name and DENSE_RANK() AS fee_rank within category, ranked by fee DESC. Display by category, fee DESC, gear_id.

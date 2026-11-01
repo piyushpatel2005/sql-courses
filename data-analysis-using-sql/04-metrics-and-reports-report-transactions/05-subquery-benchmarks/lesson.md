@@ -18,6 +18,24 @@ sql:
 
 # Compare a row with a computed benchmark
 
+## Data model
+
+### Example data
+
+These objects are loaded at the start. Only the query inputs and their required lineage are listed; other tables in a shared seed are not part of this report.
+
+#### `sessions`
+
+One row represents one studio session.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `session_id` · `integer` | Session record identifier. | Nullable; `NULL` means the identifier or reference is unrecorded. |
+| `state` · `text` | Session status; done and cancelled are observed labels, not an enforced list. | Nullable; `NULL` means no state value is recorded. |
+| `minutes` · `numeric` | Session duration in minutes; the query chooses which statuses enter its benchmark. | Nullable; `NULL` means the minutes measure is unrecorded, not zero. |
+
+No primary or unique key is declared; distinct sample identifiers are not a uniqueness guarantee.
+
 A fixed cutoff can become stale. A scalar subquery lets a report compare each record with a benchmark computed from the same defined population.
 
 A subquery is a query inside another query. In a comparison, a scalar subquery must return one column and at most one row. An ungrouped `AVG` supplies that one-row benchmark. Give the outer and inner queries the same population filter when you intend a like-for-like comparison.

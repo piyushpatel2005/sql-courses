@@ -32,6 +32,40 @@ sql:
 
 Separate a category report into a named summary stage and a filtering stage. The outer query can refer to total_fee as an ordinary column of that named result. Keep both stages in one SQL statement.
 
+## Data model
+
+### Exercise data
+
+These tables are already loaded at the start of this lesson.
+
+#### `gear`
+
+One row represents one equipment catalog entry.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `gear_id` · `integer` | Identifier of the equipment entry. | Primary key. Required; cannot be `NULL`. |
+| `name` · `text` | Equipment display name. | Required; cannot be `NULL`. |
+| `category` · `text` | Equipment grouping, such as repair, outdoors or art. | Required; cannot be `NULL`. |
+| `fee` · `numeric(6,2)` | Daily borrowing charge in currency units, stored to two decimal places. | Required; cannot be `NULL`. |
+| `available` · `boolean` | Whether the equipment is available to borrow: true or false. | Required; cannot be `NULL`. |
+| `note` · `text` | Optional handling note. | Nullable; `NULL` means no note is recorded. |
+
+Only `note` may be missing. Category labels are sample values, not an enforced vocabulary. No currency code or nonnegative-fee constraint is declared; a fee is a daily charge, not a count of items.
+
+### Named query result
+
+#### `category_totals`
+
+One row represents one category group.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `category` · `text` | Grouping label from `gear.category`. | Logical group key, not a physical primary key. Required in the base table. |
+| `total_fee` · `numeric` | Sum of `gear.fee` in this group, in daily borrowing currency units. | Computed value; no fixed precision or scale. Known for each nonempty group because fees are required. |
+
+The CTE is a named result within one statement, not a preloaded table or persistent view. Its grouped label is logically unique, with NULL grouping handled as one group where allowed.
+
 ## Supplied data
 
 The setup below is already loaded before each attempt. It is reference material, not code to paste into `script.sql`.

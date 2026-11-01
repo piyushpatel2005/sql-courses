@@ -28,6 +28,21 @@ hints:
 
 A locker cannot have zero or negative storage slots. Require a known capacity and reject nonpositive values.
 
+## Data model
+
+### Exercise data
+
+This exercise starts without tables. The following dictionaries describe the tables to create, not preloaded tables.
+
+#### `lockers`
+
+One row represents one locker.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `locker_id` · `integer` | Identifier of the locker. | Primary key. Required; cannot be `NULL`. |
+| `slots` · `integer` | Whole-number count of storage slots in the locker. | Required; cannot be `NULL`. Check: `slots > 0`. |
+
 ## Your Task
 
 1. Create lockers with locker_id integer PRIMARY KEY and slots integer NOT NULL CHECK (slots > 0). Finish by selecting locker_id, slots in that order.

@@ -36,6 +36,24 @@ hints:
 
 The desk wants the length of every recorded loan, including loans that cross a month boundary.
 
+## Data model
+
+### Exercise data
+
+These tables are already loaded at the start of this lesson.
+
+#### `rentals`
+
+One row represents one borrowing record.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `rental_id` · `integer` | Identifier of the rental. | Primary key. Required; cannot be `NULL`. |
+| `borrowed_on` · `date` | Borrowing calendar date; no time of day or time zone. | Nullable; `NULL` means no borrowed on value is recorded. |
+| `returned_on` · `date` | Return calendar date; no time of day or time zone. | Nullable; `NULL` means no returned on value is recorded. |
+
+These rows do not reference the earlier gear table. A missing return date means no return date is recorded, not a zero-length rental or an automatic count through today. No date-order check is declared.
+
 ## Your Task
 
 1. Return rental_id and returned_on - borrowed_on AS days_out for all rentals, ordered by rental_id.

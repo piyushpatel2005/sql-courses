@@ -20,6 +20,35 @@ sql:
 
 ALTER TABLE changes an existing definition. ADD COLUMN gives each row another field without discarding its existing values. A default can supply the new value for old rows; NOT NULL states that the field is required.
 
+## Data model
+
+### Example data
+
+These tables are already loaded at the start of this lesson.
+
+#### `labels`
+
+One row represents one museum label.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `label_id` · `integer` | Identifier of the label record. | Primary key. Required; cannot be `NULL`. |
+| `title` · `text` | Title printed on the museum label. | Nullable; `NULL` means no title value is recorded. |
+
+### After the schema change
+
+The following is the resulting shape. The starting dictionary above describes what is available before the change.
+
+#### `labels`
+
+One row represents one museum label.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `label_id` · `integer` | Identifier of the label record. | Primary key. Required; cannot be `NULL`. |
+| `title` · `text` | Title printed on the museum label. | Nullable; `NULL` means no title value is recorded. |
+| `reviewed` · `boolean` | Review flag: true means reviewed; false means not reviewed. | Required; cannot be `NULL`. Default `false` when omitted. |
+
 The museum adds a reviewed flag. The demonstration uses ADD COLUMN IF NOT EXISTS so another Run leaves the same result. That guard only avoids adding the same name twice; it does not verify a pre-existing column type.
 
 ```sql run

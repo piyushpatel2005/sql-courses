@@ -1,17 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 280" role="img" aria-labelledby="title desc"><title id="title">Store Each Fact at Its Own Grain</title><desc id="desc">Registration foreign keys point to people and workshops; each table stores facts at its own grain.</desc><rect width="940" height="280" fill="#f8fafc"/><defs><marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/></marker></defs>
-<text x="470" y="40" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" fill="#0f172a">Store Each Fact at Its Own Grain</text>
-<rect x="30" y="85" width="240" height="145" rx="12" fill="#dbeafe" stroke="#334155" stroke-width="2"/>
-<text x="150.0" y="120" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" fill="#0f172a">People</text>
-<text x="150.0" y="161" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#0f172a">person_id: primary key</text>
-<text x="150.0" y="194" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#0f172a">name and email</text>
-<rect x="350" y="85" width="240" height="145" rx="12" fill="#dcfce7" stroke="#334155" stroke-width="2"/>
-<text x="470.0" y="120" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" fill="#0f172a">Registrations</text>
-<text x="470.0" y="161" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#0f172a">person_id + workshop_id</text>
-<text x="470.0" y="194" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#0f172a">One row per pair</text>
-<rect x="670" y="85" width="240" height="145" rx="12" fill="#fef3c7" stroke="#334155" stroke-width="2"/>
-<text x="790.0" y="120" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" fill="#0f172a">Workshops</text>
-<text x="790.0" y="161" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#0f172a">workshop_id: primary key</text>
-<text x="790.0" y="194" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#0f172a">title and seats</text>
-<path d="M 350 157.5 L 270 157.5" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
-<path d="M 590 157.5 L 670 157.5" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="619" viewBox="0 0 520 619" role="img" aria-labelledby="title desc"><title id="title">One Fact at Each Table’s Grain</title><desc id="desc">The workshop project has people and workshops catalogs, connected by registrations. Each registration references exactly one person and one workshop. Each catalog row can have zero or many registrations. The pair is the registration primary key.</desc><rect width="520" height="619" fill="#f8fafc"/><defs><marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/></marker></defs>
+<text x="260" y="33" text-anchor="middle" font-family="Arial,sans-serif" font-size="23" fill="#0f172a">One Fact at Each Table’s Grain</text>
+<text x="260" y="61" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#0f172a">Workshop project schema, not the reader demo</text>
+<rect x="30" y="88" width="460" height="132" rx="12" fill="#dbeafe" stroke="#334155" stroke-width="2"/>
+<text x="260" y="117" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" fill="#0f172a">People</text>
+<text x="260" y="146" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#0f172a">person_id: primary key</text>
+<text x="260" y="173" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#0f172a">name: required; email: required and unique</text>
+<text x="260" y="200" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#0f172a">One person can have 0..many registrations.</text>
+<rect x="30" y="262" width="460" height="159" rx="12" fill="#dcfce7" stroke="#334155" stroke-width="2"/>
+<text x="260" y="291" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" fill="#0f172a">Registrations</text>
+<text x="260" y="320" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#0f172a">Primary key: (person_id, workshop_id)</text>
+<text x="260" y="347" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#0f172a">person_id: foreign key to people(person_id)</text>
+<text x="260" y="374" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#0f172a">workshop_id: foreign key to workshops</text>
+<text x="260" y="401" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#0f172a">Each row refers to exactly 1 of each parent.</text>
+<rect x="30" y="463" width="460" height="132" rx="12" fill="#fef3c7" stroke="#334155" stroke-width="2"/>
+<text x="260" y="492" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" fill="#0f172a">Workshops</text>
+<text x="260" y="521" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#0f172a">workshop_id: primary key</text>
+<text x="260" y="548" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#0f172a">title: required; seats: required and &gt; 0</text>
+<text x="260" y="575" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#0f172a">One workshop can have 0..many registrations.</text>
+<path d="M 260 262 L 260 220" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M 260 421 L 260 463" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
 </svg>

@@ -35,6 +35,22 @@ sql:
 
 The kits table is ready but empty. Add two records with explicit identifiers and piece counts. Naming the destination columns makes it clear how each tuple maps to the table, even if the table later gains another column.
 
+## Data model
+
+### Exercise data
+
+These tables are already loaded at the start of this lesson.
+
+#### `kits`
+
+One row represents one tool-kit record.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `kit_id` · `integer` | Identifier of the kit record. | Primary key. Required; cannot be `NULL`. |
+| `name` · `text` | Kit display name. | Required; cannot be `NULL`. |
+| `pieces` · `integer` | Whole-number count of pieces in this kit. | Required; cannot be `NULL`. Default `1` when omitted. Check: `pieces > 0`. |
+
 ## Supplied data
 
 The setup below is already loaded before each attempt. It is reference material, not code to paste into `script.sql`.

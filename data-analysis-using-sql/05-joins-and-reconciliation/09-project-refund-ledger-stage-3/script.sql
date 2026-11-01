@@ -12,5 +12,5 @@ WHERE o.status = 'paid';
 SELECT order_id, member_id, gross, refunded, net
 FROM paid_ledger ORDER BY order_id;
 
--- Stage 3: replace this preview with the next report step.
+-- TODO: Step 1: Replace the following preview: Group paid_ledger by region, retaining unmatched money.
 SELECT * FROM paid_ledger ORDER BY order_id;

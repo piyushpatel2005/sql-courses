@@ -26,6 +26,25 @@ hints:
 
 # Exercise: Protect report row identity with a primary key
 
+## Data model
+
+### Exercise data
+
+### Tables and views to define
+
+These objects do not exist in the starting database. Their fields describe the target definition, not additional columns already available to the starter.
+
+#### `report_orders`
+
+One row represents one stored order-report row.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `order_id` · `integer` | Order identifier; key enforcement depends on this lesson's declaration. | Primary key; unique. Required; cannot be `NULL`. |
+| `gross` · `numeric(10,2)` | Whole-order gross USD before refunds, copied from orders.amount when loaded. | Nullable; `NULL` means the gross measure is unrecorded, not zero. |
+
+A report table stores rows; creating it does not load them. This target is independent of the unconstrained source orders.member_id logical link.
+
 An order-grain table must not accept the same order ID twice. Declare that identity before the reporting load introduces data.
 
 ## Your Task

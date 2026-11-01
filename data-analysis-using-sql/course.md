@@ -69,7 +69,7 @@ A project stage starts from the previous stage's completed script. Its seed also
 
 ## Reading the data
 
-Most exercises use the fictional Harbor repair club. The capstone uses Beacon tool library with the same units and column meanings but different records. Demo datasets are separate illustrations, not hidden copies of the exercise answers. In an exercise, the starter previews its main source table. You can inspect other named tables with SELECT while exploring; restore your report as the final SELECT before submitting.
+Most exercises use the fictional Harbor repair club. The capstone uses Beacon tool library with the same units and column meanings but different records. Demo datasets are separate illustrations, not hidden copies of the exercise answers. Some starters preview source rows; others return a `not finished` checkpoint until you replace it. You can inspect the named source tables with SELECT while exploring; restore your report as the final SELECT before submitting.
 
 | Table | One row means | Columns and units |
 |---|---|---|

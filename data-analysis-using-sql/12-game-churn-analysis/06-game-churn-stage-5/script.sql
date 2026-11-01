@@ -58,4 +58,4 @@ FROM game_status WHERE activity_status IN ('inactive', 'retained')
 GROUP BY DATE_TRUNC('month', signed_up_at)::date, COALESCE(channel, 'unknown');
 SELECT signup_month::text AS signup_month, channel, eligible_players, inactive_players, retained_players, inactivity_pct FROM game_cohorts ORDER BY signup_month, channel;
 
--- Add the next report checkpoint below.
+-- TODO: Step 1: Insert below: Append account-level reconciliation against the cohort totals.

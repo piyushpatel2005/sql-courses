@@ -28,6 +28,21 @@ hints:
 
 Give every locker a required, unique identifier. The table starts empty, so matching the displayed headings will not by itself prove that the key was declared.
 
+## Data model
+
+### Exercise data
+
+This exercise starts without tables. The following dictionaries describe the tables to create, not preloaded tables.
+
+#### `lockers`
+
+One row represents one locker.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `locker_id` · `integer` | Identifier of the locker. | Primary key. Required; cannot be `NULL`. |
+| `label` · `text` | Readable locker label. | Nullable; `NULL` means no label value is recorded. |
+
 ## Your Task
 
 1. Create lockers with locker_id integer PRIMARY KEY and label text. Finish by selecting locker_id, label in that order.

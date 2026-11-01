@@ -18,16 +18,41 @@ sql:
 
 # Define activity churn before counting players
 
+## Data model
+
+### Example data
+
+These objects are loaded at the start. Only the query inputs and their required lineage are listed; other tables in a shared seed are not part of this report.
+
+#### `pebble_snapshot`
+
+One row represents one prepared Pebble Paths player snapshot.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `player_id` · `integer` | Player identifier; unique in the sample without a key declaration. | Nullable; `NULL` means the identifier or reference is unrecorded. |
+| `mature` · `integer` | Prepared integer flag: 1 means the account has a full follow-up opportunity; 0 means not yet comparable. | Nullable; `NULL` means no mature value is recorded. |
+| `baseline_plays` · `integer` | Completed plays during June 1–7 UTC in the fixed example. | Nullable; `NULL` means the baseline plays measure is unrecorded, not zero. |
+| `followup_plays` · `integer` | Completed plays during June 8–14 UTC before the fixed June 15 cutoff. | Nullable; `NULL` means the followup plays measure is unrecorded, not zero. |
+
+No primary or unique key is declared; distinct sample identifiers are not a uniqueness guarantee.
+
+These are prepared counts, not event rows. The year is not encoded in this table. No CHECK enforces binary flags or nonnegative counts. Eligibility needs both maturity and positive baseline activity.
+
 A quiet player is not automatically a lost customer. Before building Lantern Trail's report, separate an observed absence from a permanent decision to leave. This example uses a different game, Pebble Paths, and a shorter window so the denominator is easy to inspect.
 
 The supplied player-level table already contains clean counts. At a fixed June 15 cutoff, its baseline covers June 1–7 and follow-up covers June 8–14, in UTC. Players 21 and 22 played in the baseline and have full follow-up; player 23 joined during follow-up. Player 24 has a mature account but never played in the baseline. Filter the eligible population before computing the rate.
 
 ```sql run
 SELECT COUNT(*) AS eligible_players,
-       COUNT(*) FILTER (WHERE followup_plays = 0) AS inactive_players,
-       COUNT(*) FILTER (WHERE followup_plays > 0) AS retained_players,
-       ROUND(100.0 * COUNT(*) FILTER (WHERE followup_plays = 0)
-             / NULLIF(COUNT(*), 0), 2) AS inactivity_pct
+       COUNT(*) FILTER (WHERE followup_plays = 0)
+         AS inactive_players,
+       COUNT(*) FILTER (WHERE followup_plays > 0)
+         AS retained_players,
+       ROUND(
+         100.0 * COUNT(*) FILTER (WHERE followup_plays = 0)
+         / NULLIF(COUNT(*), 0), 2
+       ) AS inactivity_pct
 FROM pebble_snapshot
 WHERE mature = 1 AND baseline_plays > 0;
 ```
@@ -38,7 +63,7 @@ Predict whether adding another follow-up play for player 21 would change this pl
 
 ## The game snapshot
 
-You are reviewing the fictional cooperative puzzle game **Lantern Trail**. `game_players` has one row per account: integer `player_id`, UTC `signed_up_at`, and nullable acquisition `channel`. `game_events` has one row per received event version: unique integer `ingest_id`, repeatable text `event_id`, `player_id`, `kind`, UTC occurrence `happened_at`, and arrival `received_at`. A `play` is a completed puzzle attempt; a heartbeat is not play. These synthetic records describe no real players.
+You are reviewing the fictional cooperative puzzle game **Lantern Trail**. `game_players` has one row per account. Its integer `player_id` is a declared primary key, `signed_up_at` is a non-null timestamp with time zone, and `channel` is nullable text. `game_events` has one row per received event version. Its integer primary key `ingest_id` identifies the receipt; non-null text `event_id` identifies the logical event and may repeat. `player_id` is an integer logical link without a declared foreign key, so an orphan event can appear. `kind` is non-null text, and `happened_at` (occurrence) and `received_at` (arrival) are non-null timestamps with time zone. The report interprets these instants in UTC. A `play` is a completed puzzle attempt; a heartbeat is not play. These synthetic records describe no real players.
 
 Use the fixed cutoff **April 1, 2025 at 00:00 UTC**, exclusively. Keep only events that both happened and arrived before that instant, retain the latest known version per event ID (arrival descending, then ingest ID descending), then keep plays matched to an account and occurring on or after signup. Assume this toy export covers all accounts from signup onward; in a real export verify tracking coverage and identity quality before interpreting silence.
 

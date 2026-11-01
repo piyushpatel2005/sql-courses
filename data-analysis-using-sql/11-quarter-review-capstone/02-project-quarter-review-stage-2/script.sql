@@ -6,5 +6,5 @@ WHERE status='paid'
  AND placed_at < TIMESTAMPTZ '2025-04-01 00:00+00';
 SELECT order_id, member_id, gross FROM quarter_paid ORDER BY order_id;
 
--- Stage 2: replace this preview with the next report step.
+-- TODO: Step 1: Replace the following preview: Define quarter_net using only pre-cutoff refund totals.
 SELECT order_id, member_id, gross FROM quarter_paid ORDER BY order_id;

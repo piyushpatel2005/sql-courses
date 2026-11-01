@@ -18,6 +18,21 @@ sql:
 
 # Inspect the proposed query plan
 
+## Data model
+
+### Example data
+
+These objects are loaded at the start. Only the query inputs and their required lineage are listed; other tables in a shared seed are not part of this report.
+
+#### `plan_tickets`
+
+One row represents one ticket.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `ticket` · `integer` | Unique ticket identifier. | Primary key; unique. Required; cannot be `NULL`. |
+| `minutes` · `integer` | Recorded ticket duration in minutes. | Nullable; `NULL` means the minutes measure is unrecorded, not zero. |
+
 EXPLAIN shows planned operations without executing an ordinary SELECT. COSTS OFF hides estimates so you can focus on the access path and filter. A sequential scan can be reasonable on a tiny table; cost units are not elapsed milliseconds.
 
 Read the fixture plan before proposing any optimization. EXPLAIN ANALYZE would actually execute the query, so treat that option carefully with writes or expensive work. This lesson checks a fixed plan for a fixed snapshot, not a general optimizer guarantee.

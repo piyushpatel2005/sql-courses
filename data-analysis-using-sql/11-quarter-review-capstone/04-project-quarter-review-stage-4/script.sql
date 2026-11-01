@@ -27,5 +27,5 @@ GROUP BY COALESCE(m.region,'unmatched');
 SELECT region, paid_orders, registered_buyers, gross, refunded, net
 FROM quarter_regions ORDER BY region;
 
--- Stage 4: replace this preview with the next report step.
+-- TODO: Step 1: Replace the following preview: Define quarter_months and report monthly running/change values.
 SELECT region, paid_orders, registered_buyers, gross, refunded, net FROM quarter_regions ORDER BY region;

@@ -11,5 +11,5 @@ SELECT c.day, COALESCE(d.gross,0) AS gross
 FROM calendar c LEFT JOIN daily d ON d.day=c.day;
 SELECT day::text AS day, gross FROM march_daily ORDER BY day;
 
--- Stage 2: replace this preview with the next report step.
+-- TODO: Step 1: Replace the following preview: Define march_trend with running and trailing daily totals.
 SELECT day::text AS day, gross FROM march_daily ORDER BY day;

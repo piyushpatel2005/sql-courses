@@ -29,6 +29,39 @@ sql:
 
 The makerspace needs one contact row for each maker with a booking, not one row per booking. EXISTS fits that question without producing duplicate contacts. Kai has no bookings and should not appear.
 
+## Data model
+
+### Exercise data
+
+These tables are already loaded at the start of this lesson.
+
+#### `bookings`
+
+One row represents one booked session choice.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `booking_id` · `integer` | Identifier of this booking, not of a person. | Primary key. Required; cannot be `NULL`. |
+| `maker_id` · `integer` | Person identifier used to match this booking to `makers`. | Nullable; `NULL` means the identifier is unrecorded. |
+| `session` · `text` | Booked session label; not a separate session identifier. | Nullable; `NULL` means no session value is recorded. |
+
+#### `makers`
+
+One row represents one person in the makerspace.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `maker_id` · `integer` | Identifier of the person. | Primary key. Required; cannot be `NULL`. |
+| `name` · `text` | Person display name; different people may share a name. | Nullable; `NULL` means no name value is recorded. |
+
+### Relationship map
+
+![Logical Key Match: bookings.maker_id and makers.maker_id](bookings-maker-id-to-makers-maker-id-relationship-d09e3375.svg)
+
+`bookings.maker_id` matches `makers.maker_id`. One `makers` row can have zero or many matching `bookings` rows; each `bookings` row can match zero or one parent because the parent key is unique. This is a logical match, not a declared foreign key; a NULL or unmatched child identifier is allowed.
+
+`EXISTS` tests for a matching child without copying child rows into the output, so multiple matches do not multiply a parent row.
+
 ## Supplied data
 
 The setup below is already loaded before each attempt. It is reference material, not code to paste into `script.sql`.

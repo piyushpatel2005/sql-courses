@@ -18,5 +18,5 @@ SELECT p.order_id, p.member_id, p.placed_at, p.gross,
 FROM quarter_paid p LEFT JOIN refund_totals r ON r.order_id=p.order_id;
 SELECT order_id, gross, refunded, net FROM quarter_net ORDER BY order_id;
 
--- Stage 3: replace this preview with the next report step.
+-- TODO: Step 1: Replace the following preview: Define quarter_regions with known buyers and unmatched money.
 SELECT order_id, gross, refunded, net FROM quarter_net ORDER BY order_id;

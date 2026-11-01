@@ -34,6 +34,34 @@ sql:
 
 A signup sheet and an arrival sheet disagree. Keep identifiers from both sides so the coordinator can see signups that did not arrive and arrivals that never signed up. Do not discard those differences with an inner join.
 
+## Data model
+
+### Exercise data
+
+These tables are already loaded at the start of this lesson.
+
+#### `arrival`
+
+One row represents one person recorded on the arrival sheet.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `person_id` · `integer` | Person identifier on the arrival sheet. | Primary key. Required; cannot be `NULL`. |
+
+#### `signup`
+
+One row represents one person recorded on the signup sheet.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `person_id` · `integer` | Person identifier on the signup sheet. | Primary key. Required; cannot be `NULL`. |
+
+### Relationship map
+
+![Logical Key Match: signup.person_id and arrival.person_id](signup-person-id-to-arrival-person-id-relationship-2b7b4c34.svg)
+
+Match `signup.person_id` to `arrival.person_id`. Both columns are primary keys, so a row has zero or one match in the other list. Neither list references the other with a foreign key. A full join keeps unmatched rows from both sides and fills only the missing side with NULL.
+
 ## Supplied data
 
 The setup below is already loaded before each attempt. It is reference material, not code to paste into `script.sql`.

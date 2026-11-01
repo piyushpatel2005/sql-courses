@@ -29,7 +29,29 @@ sql:
 
 The result checks confirm the selected column names and empty rows. They do not independently verify the table name or declared types; compare your definition with the requested design.
 
+## Data model
+
+### Exercise data
+
+This exercise starts without tables. The following dictionaries describe the tables to create, not preloaded tables.
+
+#### `storage_bins`
+
+One row represents one storage bin to be created.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `bin_id` · `integer` | Intended identifier of the bin. | Nullable; `NULL` means the identifier is unrecorded. |
+| `label` · `text` | Readable bin label. | Nullable; `NULL` means no label value is recorded. |
+| `capacity` · `integer` | Whole-number count of storage slots in the bin. | Nullable; `NULL` means the capacity is unrecorded, not zero. |
+
+This first design does not yet enforce unique identifiers or positive capacities.
+
+This table has no declared primary or unique key; distinct sample values are not a uniqueness guarantee.
+
 The storage coordinator needs a new table, not a new query on the gear catalog. Start with an empty database and choose the requested column types. The final SELECT lets you inspect the shape even before any bins exist.
+
+Each future row represents one storage bin. `bin_id` is its intended identifier, `label` is readable text, and `capacity` counts storage slots, so a whole-number type fits. This first definition does not yet enforce unique identifiers or positive capacities; practice the column structure before adding those constraints.
 
 ## Supplied data
 

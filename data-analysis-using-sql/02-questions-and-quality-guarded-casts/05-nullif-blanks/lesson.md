@@ -18,6 +18,23 @@ sql:
 
 # Mark a blank as missing with NULLIF
 
+## Data model
+
+### Example data
+
+These objects are loaded at the start. Only the query inputs and their required lineage are listed; other tables in a shared seed are not part of this report.
+
+#### `labels`
+
+One row represents one received parcel label.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `parcel_id` · `integer` | Parcel record identifier. | Nullable; `NULL` means the identifier or reference is unrecorded. |
+| `site` · `text` | Raw pickup-site text, including original spaces and letter case; blanks are present text, not SQL NULL. | Nullable; `NULL` means no site value is recorded. |
+
+No primary or unique key is declared; distinct sample identifiers are not a uniqueness guarantee.
+
 NULLIF(value, comparison) returns NULL when the values are equal and the first value otherwise. A blank imported label is not a known location. After the previously taught trimming and lowercasing, compare it with an empty string to represent that missingness explicitly.
 
 Inspect the spaces-only label after trimming. NULLIF turns its empty string into NULL, while a known pickup label remains a value.

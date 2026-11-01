@@ -26,6 +26,27 @@ hints:
 
 # Exercise: Create an empty reporting table
 
+## Data model
+
+### Exercise data
+
+### Tables and views to define
+
+These objects do not exist in the starting database. Their fields describe the target definition, not additional columns already available to the starter.
+
+#### `report_orders`
+
+One row represents one stored order-report row.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `order_id` · `integer` | Order identifier; key enforcement depends on this lesson's declaration. | Nullable; `NULL` means the identifier or reference is unrecorded. |
+| `gross` · `numeric(10,2)` | Whole-order gross USD before refunds, copied from orders.amount when loaded. | Nullable; `NULL` means the gross measure is unrecorded, not zero. |
+
+No primary or unique key is declared; distinct sample identifiers are not a uniqueness guarantee.
+
+A report table stores rows; creating it does not load them. This target is independent of the unconstrained source orders.member_id logical link.
+
 Create the empty destination for an order-grain report. Data will be loaded in a later lesson.
 
 ## Your Task

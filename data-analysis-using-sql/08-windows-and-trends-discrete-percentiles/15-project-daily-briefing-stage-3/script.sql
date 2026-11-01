@@ -19,5 +19,5 @@ FROM march_daily;
 SELECT day::text AS day, gross, running_gross, trailing_three_days
 FROM march_trend ORDER BY day;
 
--- Stage 3: replace this preview with the next report step.
+-- TODO: Step 1: Replace the following preview: Add daily changes with honest missing and zero baselines.
 SELECT day::text AS day, gross, running_gross, trailing_three_days FROM march_trend ORDER BY day;

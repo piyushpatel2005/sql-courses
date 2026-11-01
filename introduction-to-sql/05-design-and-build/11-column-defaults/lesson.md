@@ -20,6 +20,21 @@ sql:
 
 DEFAULT supplies a value when an INSERT leaves that column out. It is not validation: an explicit value is still checked by the constraints. A supplied NULL remains NULL rather than invoking the default. The upcoming insertion lesson will use omitted columns.
 
+## Data model
+
+### Example data
+
+This example starts without tables. The following dictionaries describe the tables to create, not preloaded tables.
+
+#### `locations`
+
+One row represents one location.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `location_id` · `integer` | Identifier of the location. | Primary key. Required; cannot be `NULL`. |
+| `capacity` · `integer` | Whole-number capacity assigned to the location. | Required; cannot be `NULL`. Default `1` when omitted. Check: `capacity > 0`. |
+
 The default does not add a row. It prepares a value for a later insert that omits capacity. Supplying an explicit zero would still fail the CHECK rule. IF NOT EXISTS allows another Run without recreating the table; it does not validate an existing definition.
 
 ```sql run

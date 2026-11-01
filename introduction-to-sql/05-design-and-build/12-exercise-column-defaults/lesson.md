@@ -28,6 +28,21 @@ hints:
 
 Most new lockers have one slot. Define that as the value for an omitted capacity while retaining the positive-capacity rule.
 
+## Data model
+
+### Exercise data
+
+This exercise starts without tables. The following dictionaries describe the tables to create, not preloaded tables.
+
+#### `lockers`
+
+One row represents one locker.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `locker_id` · `integer` | Identifier of the locker. | Primary key. Required; cannot be `NULL`. |
+| `slots` · `integer` | Whole-number count of storage slots in the locker. | Required; cannot be `NULL`. Default `1` when omitted. Check: `slots > 0`. |
+
 ## Your Task
 
 1. Create lockers with locker_id integer PRIMARY KEY and slots integer NOT NULL DEFAULT 1 CHECK (slots > 0). Finish by selecting locker_id, slots in that order.

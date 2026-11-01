@@ -34,6 +34,25 @@ hints:
 
 The equipment list stores one choice per row instead of numbered item columns. Read those rows as a person-item list; selecting them does not change the design.
 
+## Data model
+
+### Exercise data
+
+These tables are already loaded at the start of this lesson.
+
+#### `equipment_choices`
+
+One row represents one person-item choice.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `person` · `text` | Person name used as an illustrative label. | Nullable; `NULL` means no person value is recorded. |
+| `item` · `text` | Name of one chosen equipment item, not a list of items. | Nullable; `NULL` means no item value is recorded. |
+
+These text labels are not identity constraints. No primary key or foreign key prevents duplicate choice rows.
+
+This table has no declared primary or unique key; distinct sample values are not a uniqueness guarantee.
+
 ## Your Task
 
 1. Return person and item from the one-choice-per-row equipment_choices table, ordered by person then item.

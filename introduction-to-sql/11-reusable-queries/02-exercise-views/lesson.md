@@ -34,6 +34,41 @@ sql:
 
 The result checks do not prove that a view object was created. Include CREATE VIEW and query it as requested.
 
+## Data model
+
+### Exercise data
+
+These tables are already loaded at the start of this lesson.
+
+#### `gear`
+
+One row represents one equipment catalog entry.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `gear_id` · `integer` | Identifier of the equipment entry. | Primary key. Required; cannot be `NULL`. |
+| `name` · `text` | Equipment display name. | Required; cannot be `NULL`. |
+| `category` · `text` | Equipment grouping, such as repair, outdoors or art. | Required; cannot be `NULL`. |
+| `fee` · `numeric(6,2)` | Daily borrowing charge in currency units, stored to two decimal places. | Required; cannot be `NULL`. |
+| `available` · `boolean` | Whether the equipment is available to borrow: true or false. | Required; cannot be `NULL`. |
+| `note` · `text` | Optional handling note. | Nullable; `NULL` means no note is recorded. |
+
+Only `note` may be missing. Category labels are sample values, not an enforced vocabulary. No currency code or nonnegative-fee constraint is declared; a fee is a daily charge, not a count of items.
+
+### Named query result
+
+#### `ready_gear`
+
+One row represents one available equipment entry.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `gear_id` · `integer` | Identifier inherited from `gear.gear_id`. | Logically unique and non-NULL because the base primary key passes through unchanged; not a declared view primary key. |
+| `name` · `text` | Display name inherited from `gear.name`. | Inherited required value; no view uniqueness constraint. |
+| `fee` · `numeric(6,2)` | Daily borrowing charge inherited from `gear.fee`, in currency units. | Inherited required value; two decimal places. |
+
+This is the view you are about to create, not a preloaded table. Its fields come directly from `gear`; the availability filter does not aggregate or duplicate rows. The view has no separately declared physical key or foreign key, and its rows reflect current base data rather than a frozen snapshot.
+
 The desk repeatedly asks for available equipment. Give that filter a reusable view name, then read the view rather than repeating its WHERE clause. Keep the identifier available inside the view for stable outer ordering.
 
 ## Supplied data

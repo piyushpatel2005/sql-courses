@@ -18,6 +18,25 @@ sql:
 
 # Reduce repeated activity to one row per combination
 
+## Data model
+
+### Example data
+
+These objects are loaded at the start. Only the query inputs and their required lineage are listed; other tables in a shared seed are not part of this report.
+
+#### `visits`
+
+One row represents one recorded reading-group visit.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `reader` · `integer` | Reader identity label for the visit. | Nullable; `NULL` means the identifier or reference is unrecorded. |
+| `month` · `date` | First-of-month activity date; repeated reader-month pairs represent several visits. | Nullable; `NULL` means the calendar date is unrecorded. |
+
+No primary or unique key is declared; distinct sample identifiers are not a uniqueness guarantee.
+
+The date is an activity-month bucket, not a signup cohort. Neither first-of-month values nor unique pairs are declared constraints.
+
 SELECT DISTINCT removes duplicate result rows by comparing every selected column. A reader-month pair is different from either a reader alone or a raw visit record. Choose the columns that express the desired activity grain before removing duplicates.
 
 The reading-group table has two visits for one reader in February. The query keeps one reader-month row so later joins can count that reader once. This does not delete the original visits or imply that either visit was a mistake.

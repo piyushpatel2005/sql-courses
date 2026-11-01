@@ -35,6 +35,40 @@ sql:
 
 The people register from stage 1 is restored with Sana and Tomas unchanged. Now add the independent catalog of workshops. A workshop exists even before someone registers, so it should not be stored as a repeated field on a person.
 
+## Data model
+
+### Exercise data
+
+These tables are already loaded at the start of this lesson.
+
+#### `people`
+
+One row represents one person.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `person_id` · `integer` | Identifier of the person. | Primary key. Required; cannot be `NULL`. |
+| `name` · `text` | Person display name; not necessarily unique. | Required; cannot be `NULL`. |
+| `email` · `text` | Email address for this project's one-person-per-email rule. | Unique. Required; cannot be `NULL`. |
+
+### Tables to create
+
+The database does not contain these tables yet. The definitions below describe the new tables for this lesson, not tables inherited from an earlier attempt.
+
+#### `workshops`
+
+One row represents one workshop.
+
+| Field / SQL type | Meaning | Rules |
+| --- | --- | --- |
+| `workshop_id` · `integer` | Identifier of the workshop. | Primary key. Required; cannot be `NULL`. |
+| `title` · `text` | Workshop title. | Required; cannot be `NULL`. |
+| `seats` · `integer` | Whole-number seat capacity of this workshop. | Required; cannot be `NULL`. Check: `seats > 0`. |
+
+### State for this lesson
+
+The restored `people` rows are unchanged input state. `workshops` is this stage's new target; the registrations link table does not exist yet. A positive seat count does not itself enforce a registration limit.
+
 Use one row per workshop, with a positive seat capacity. The CHECK controls the declared capacity; it does not count registrations or prevent overbooking by itself. That rule would require additional transactional application logic, which is beyond this modeling project.
 
 The seed is the completed SQL from stage 1. Do not recreate or rename people. Add your new table and rows, then inspect the catalog. In stage 3 these exact workshop identifiers will become foreign-key targets.
