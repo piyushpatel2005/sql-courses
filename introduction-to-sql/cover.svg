@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" style="--a:#8eb7ff;--b:#80e2cd;--bg:#142235;--muted:#47627a" role="img" aria-labelledby="title"><title id="title">Introduction To Sql course illustration</title>
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#20354b"/><stop offset="1" stop-color="#101b2b"/></linearGradient></defs>
+<rect width="512" height="512" rx="48" fill="url(#bg)"/>
+<circle cx="430" cy="70" r="140" fill="#8eb7ff" opacity=".04"/>
+<circle cx="70" cy="450" r="140" fill="#80e2cd" opacity=".04"/>
+<rect x="30" y="30" width="452" height="452" rx="32" fill="none" stroke="#8eb7ff" stroke-opacity=".12" stroke-width="2"/>
+<path d="M166 179v154c0 38 180 38 180 0V179" fill="var(--a)" fill-opacity=".15" stroke="var(--a)" stroke-width="12"/><ellipse cx="256.0" cy="179" rx="90.0" ry="28" fill="var(--bg)" stroke="var(--a)" stroke-width="12"/><path d="M166 241c0 38 180 38 180 0" fill="none" stroke="var(--a)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" /><path d="M166 301c0 38 180 38 180 0" fill="none" stroke="var(--a)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" /><path d="M123 216L96 242L123 268M389 216L416 242L389 268" fill="none" stroke="var(--b)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M64 440H108" stroke="#8eb7ff" stroke-width="6" stroke-linecap="round"/><circle cx="124" cy="440" r="3" fill="#80e2cd"/>
+</svg>

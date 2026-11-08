@@ -1,5 +1,9 @@
 ---
 slug: data-analysis-using-sql
+image: cover.svg
+prerequisites:
+  - course: introduction-to-sql
+    note: "Be comfortable with SELECT, filtering, joins, grouping, and reusable queries."
 title: Data Analysis Using SQL
 description: Build reliable SQL reports from defined populations, clean data, correct joins, calendars, windows, and behavioral metrics.
 language: sql

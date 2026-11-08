@@ -1,5 +1,9 @@
 ---
 slug: introduction-to-sql
+image: cover.svg
+prerequisites:
+  - course: introduction-to-pandas
+    note: "Recommended earlier step in the Data Analysis Track for familiarity with filtering and summarizing tables; Python and pandas are not required to start SQL."
 title: Introduction to SQL
 description: Learn SQL through runnable examples, focused exercises, and staged database projects.
 language: sql
